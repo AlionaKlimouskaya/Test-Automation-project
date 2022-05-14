@@ -116,3 +116,22 @@ def test_unique_keys_address():
     result = connection.execute(query).fetchall()
     count_duplicated_keys = result[0][0]
     assert count_duplicated_keys == 0
+
+
+@pytest.mark.DQcheck
+def test_blank_addressline_address():
+    """
+    TC#6 Check that AddressLine column doesn't contain blank values
+    Test Steps:
+    1. Connect to AdventureWorks2012 DB
+    2. Execute query to select blank value in AddressLine column from Address table
+    3. Verify that the query result is empty
+    Expected result:
+    1. The result of query is 0.
+    """
+    connection = set_up_connection()
+    query = """SELECT count(*) as 'AddressID count' FROM AdventureWorks2012.Person.Address
+    WHERE AddressLine1 IS NULL or AddressLine1 = '';"""
+    result = connection.execute(query).fetchall()
+    count_blank_address = result[0][0]
+    assert count_blank_address == 0
