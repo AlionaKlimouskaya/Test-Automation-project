@@ -99,26 +99,6 @@ def test_file_extension_document():
 
 
 @pytest.mark.DQcheck
-def test_unique_keys_address():
-    """
-    TC#5 Check that AddressID doesn't have duplicates
-    Test Steps:
-    1. Connect to AdventureWorks2012 DB
-    2. Execute query to select duplicates values from Address table
-    3. Verify that the query result is empty
-    Expected result:
-    1. The result of query is 0.
-    """
-    connection = set_up_connection()
-    query = """SELECT count(row_count) AS 'Row count'
-    FROM (SELECT count(*) AS row_count, AddressID FROM AdventureWorks2012.Person.Address 
-    GROUP BY AddressID HAVING count(*) > 1) a;"""
-    result = connection.execute(query).fetchall()
-    count_duplicated_keys = result[0][0]
-    assert count_duplicated_keys == 0
-
-
-@pytest.mark.DQcheck
 def test_blank_addressline_address():
     """
     TC#6 Check that AddressLine column doesn't contain blank values
