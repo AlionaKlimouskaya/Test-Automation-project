@@ -3,12 +3,12 @@ import pytest
 
 def set_up_connection():
     """Fixture to establish connection before a test is run"""
-    server = 'host.docker.internal'
+    server = 'host.docker.internal\\SQLEXPRESS'
     database = 'AdventureWorks2012'
     username = 'NewAdminName'
     password = 'ABCDEFG!!!!3'
     connection = pyodbc.connect(
-        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';;PORT=1433; DATABASE=' + database + ';' \
+        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + '; Port=60126; DATABASE=' + database + ';' \
         'UID=' + username + ';PWD=' + password)
     cursor = connection.cursor()
     return cursor
