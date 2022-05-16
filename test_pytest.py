@@ -3,7 +3,7 @@ import pytest
 
 def set_up_connection():
     """Fixture to establish connection before a test is run"""
-    server = 'localhost\\SQLEXPRESS'
+    server = 'EPBYMINW116C\SQLEXPRESS'
     database = 'AdventureWorks2012'
     username = 'NewAdminName'
     password = 'ABCDEFG!!!!3'
