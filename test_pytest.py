@@ -3,7 +3,7 @@ import pytest
 
 def set_up_connection():
     """Fixture to establish connection before a test is run"""
-    server = 'host.docker.internal:60126'
+    server = '192.168.65.2\\SQLEXPRESS'
     database = 'AdventureWorks2012'
     username = 'NewAdminName'
     password = 'ABCDEFG!!!!3'
