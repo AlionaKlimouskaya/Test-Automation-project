@@ -3,12 +3,12 @@ import pytest
 
 def set_up_connection():
     """Fixture to establish connection before a test is run"""
-    server = '172.17.0.2\\SQLEXPRESS'
+    server = 'localhost'
     database = 'AdventureWorks2012'
     username = 'NewAdminName'
     password = 'ABCDEFG!!!!3'
     connection = pyodbc.connect(
-        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + '; DATABASE=' + database + ';' \
+        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + '\SQLEXPRESS' + '; DATABASE=' + database + ';' \
         'UID=' + username + ';PWD=' + password)
     cursor = connection.cursor()
     return cursor
