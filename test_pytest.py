@@ -8,7 +8,7 @@ def set_up_connection():
     username = 'NewAdminName'
     password = 'ABCDEFG!!!!3'
     connection = pyodbc.connect(
-        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + '\SQLEXPRESS' + '; DATABASE=' + database + ';' \
+        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + '\\SQLEXPRESS' + '; DATABASE=' + database + ';' \
         'UID=' + username + ';PWD=' + password)
     cursor = connection.cursor()
     return cursor
