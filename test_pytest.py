@@ -8,7 +8,7 @@ def set_up_connection():
 @pytest.mark.DQcheck
 def test_modifieddate_unitmeasure():
     """
-    TC#1 Check that ModifiedDate values are less than the current date
+    TestCase#1 Check that ModifiedDate values are less than the current date
     Test Steps:
     1. Connect to AdventureWorks2012 DB
     2. Execute query to select future date records from UnitMeasure table
